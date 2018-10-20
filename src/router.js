@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use((req, res, next) => {
-    console.log('Time: ' + Date.now());
+    console.log('Routing at Time: ' + Date.now());
     next();
 });
 
