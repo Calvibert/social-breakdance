@@ -1,8 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const visitor = require('./visitorTDG');
-const c = require('./config');
-const url = c.config.dbUrl;
-const dbName = c.config.dbName;
+const config = require('./config');
+const url = config.c.dbUrl;
+const dbName = config.c.dbName;
 var col;
 
 exports.connect = function(opName, colName, obj = 0, newObj = 0) {

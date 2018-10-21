@@ -27,7 +27,6 @@ function remove() {
 }
 
 function read() {
-    if (!obj) return;
     col.find(obj).toArray().then((value) => {
         return value;
     });

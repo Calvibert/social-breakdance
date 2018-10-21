@@ -1,8 +1,9 @@
 const express = require('express');
 const router = require('./router');
 const feeder = require('./feeder');
+const config = require('./config');
 const app = express();
-const port = 3000;
+const port = config.c.port;
 
 app.set('port', (process.env.PORT || port))
 app.use('/', feeder, router);
