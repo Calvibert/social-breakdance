@@ -8,7 +8,7 @@ exports.dispatch = function(operation, collection, object = 0, newObject = 0) {
     newObj = newObject;
 
     switch(operation) {
-        case 'add': return add();
+        case 'create': return create();
         case 'remove': return remove();
         case 'read': return read();
         case 'update': return update();
@@ -16,7 +16,7 @@ exports.dispatch = function(operation, collection, object = 0, newObject = 0) {
     }
 };
 
-function add() {
+function create() {
     if (!obj) return;
     return col.insert(object);
 }
