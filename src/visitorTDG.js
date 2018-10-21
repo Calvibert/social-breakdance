@@ -4,7 +4,7 @@ var obj;
 exports.dispatch = function(operation, collection, object = 0) {
     col = collection;
     obj = object;
-
+    
     switch(operation) {
         case 'add': return add();
         case 'remove': return remove();
@@ -15,6 +15,7 @@ exports.dispatch = function(operation, collection, object = 0) {
 };
 
 function add() {
+
     return 'Added item';
 }
 

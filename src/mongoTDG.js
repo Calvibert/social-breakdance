@@ -5,18 +5,11 @@ const dbName = 'soc-plat';
 var col;
 
 exports.connect = function(op) {
-    connect();
-
-    return visitor.dispatch(op, col);
-};
-
-function connect() {
     MongoClient.connect(url, (err, client) => {
         if (err) throw err;
 
         col = client.db(dbName).collection('user');
-        console.log(col.find().count().then(function(value) {
-            console.log(value);
-        }));
+
+        visitor.dispatch(op, col);
     });
-}
+};
