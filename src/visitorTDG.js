@@ -1,9 +1,11 @@
 var col;
 var obj;
+var newObj;
 
-exports.dispatch = function(operation, collection, object = 0) {
+exports.dispatch = function(operation, collection, object = 0, newObject = 0) {
     col = collection;
     obj = object;
+    newObj = newObject;
 
     switch(operation) {
         case 'add': return add();
@@ -20,7 +22,8 @@ function add() {
 }
 
 function remove() {
-    return 'Removed item';
+    if (!obj) return;
+    return col.deleteOne(obj);
 }
 
 function read() {
@@ -31,5 +34,6 @@ function read() {
 }
 
 function update() {
-    return 'Updated item';
+    if (!obj && !newObj) return;
+    return col.updateOne(obj, {$set: newObj});
 }

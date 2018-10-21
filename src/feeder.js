@@ -1,7 +1,7 @@
 var tdg = require('./mongoTDG');
 
 var feeder = function(req, res, next) {
-    var result = tdg.connect('read');
+    var result = tdg.connect('remove');
 
     next();
 }

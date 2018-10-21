@@ -9,7 +9,7 @@ exports.connect = function(op) {
         if (err) throw err;
 
         col = client.db(dbName).collection('user');
-        visitor.dispatch(op, col, object={"name": "Kyle Lowry"});
+        visitor.dispatch(op, col, object={"name": "Kawai Leonard"}, newObject={"name": "Kawai Leonard"});
 
         client.close();
     });
