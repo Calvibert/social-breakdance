@@ -1,7 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const visitor = require('./visitorTDG');
-const url = 'mongodb://127.0.0.1:27017/';
-const dbName = 'soc-plat';
+const c = require('./config');
+const url = c.config.dbUrl;
+const dbName = c.config.dbName;
 var col;
 
 exports.connect = function(opName, colName, obj = 0, newObj = 0) {
