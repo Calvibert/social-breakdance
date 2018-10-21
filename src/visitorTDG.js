@@ -4,7 +4,7 @@ var obj;
 exports.dispatch = function(operation, collection, object = 0) {
     col = collection;
     obj = object;
-    
+
     switch(operation) {
         case 'add': return add();
         case 'remove': return remove();
@@ -15,8 +15,8 @@ exports.dispatch = function(operation, collection, object = 0) {
 };
 
 function add() {
-
-    return 'Added item';
+    if (!obj) return;
+    return col.insert(object);
 }
 
 function remove() {
@@ -24,7 +24,10 @@ function remove() {
 }
 
 function read() {
-    return 'Read item';
+    if (!obj) return;
+    col.find(obj).toArray().then((value) => {
+        return value;
+    });
 }
 
 function update() {
