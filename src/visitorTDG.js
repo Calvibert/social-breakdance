@@ -12,7 +12,7 @@ exports.dispatch = function(operation, collection, object = 0, newObject = 0) {
         case 'remove': return remove();
         case 'read': return read();
         case 'update': return update();
-        default: return 'Invalid operation';
+        default: return;
     }
 };
 
