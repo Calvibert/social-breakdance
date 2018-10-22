@@ -5,7 +5,8 @@ const config = require('./config');
 const app = express();
 const port = config.c.port;
 
-app.set('port', (process.env.PORT || port))
+app.set('port', (process.env.PORT || port));
+app.set('view engine', 'pug');
 app.use('/', feeder, router);
 
 app.listen(app.get('port'), function() {

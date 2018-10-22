@@ -1,0 +1,14 @@
+doctype html
+
+html
+  head
+    title= title
+    style
+      include style/style.css
+
+  body(class='page')
+    div(class='menu-bar')
+      h1 Bleuet - Social platform
+
+    each post in posts
+      include post.pug

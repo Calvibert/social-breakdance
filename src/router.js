@@ -7,7 +7,8 @@ router.use((req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    res.send('Home page');
+    res.render('index', {title: 'Hey', posts: [{name: "Samuel Dufresne", ptitle: "Test post", content: "content1"},
+    {name: "Peter Griffin", ptitle: "this is a title", content: "second content"}]});
 });
 
 router.get('/about', (req, res) => {
