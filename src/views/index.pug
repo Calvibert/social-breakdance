@@ -5,10 +5,17 @@ html
     title= title
     style
       include style/style.css
+    script(src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js')
+    script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/autoresize.jquery.js')
 
-  body(class='page')
-    div(class='menu-bar')
+  body(class='index__div')
+    div(class='index__menu')
       h1 Bleuet - Social platform
+
+    include publish.pug
 
     each post in posts
       include post.pug
+
+    script.
+      $('textarea').autoResize();
