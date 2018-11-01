@@ -12,33 +12,25 @@
     resize: none;
     font-size: 18px;
     height: 40px;
-    width: 97%;
+    width: 60%;
     outline: none;
     position: relative;
     left: 10px;
 }
 
-.publish__info-action {
+.publish__action-div {
     float: right;
-    position: relative;
-    top: -20px;
-    right: 40px;
+    margin: 10px 15px auto auto;
 }
 
 .publish__info-text {
+    position: absolute;
     visibility: hidden;
     background-color: #555;
     color: #fff;
     text-align: center;
     z-index: 1;
 }
-
-/* .publish__info {
-    float: right;
-    position: relative;
-    top: 23px;
-    right: 47px;
-} */
 
 .index__menu {
     margin-top: -22px;
