@@ -1,4 +1,4 @@
-.post__div, .publish__div {
+.post__div {
     background: white;
     width: 60%;
     margin-left: auto;
@@ -7,30 +7,6 @@
     box-shadow: -5px 5px 8px black;
 }
 
-.publish__textarea {
-    border: none;
-    resize: none;
-    font-size: 18px;
-    height: 40px;
-    width: 60%;
-    outline: none;
-    position: relative;
-    left: 10px;
-}
-
-.publish__action-div {
-    float: right;
-    margin: 10px 15px auto auto;
-}
-
-.publish__info-text {
-    position: absolute;
-    visibility: hidden;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    z-index: 1;
-}
 
 .index__menu {
     margin-top: -22px;

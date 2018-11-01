@@ -5,8 +5,11 @@ html
     title= title
     style
       include style/style.css
+    style
+      include style/publish.css
     script(src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js')
     script(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/autoresize.jquery.js')
+    script(src='../infoPopup.js')
 
   body(class='index__div')
     div(class='index__menu')
@@ -19,3 +22,8 @@ html
 
     script.
       $('textarea').autoResize();
+    script.
+      function infoPopup() {
+        var popup = document.getElementById("publish__info-text");
+        popup.classList.toggle("show");
+      }
