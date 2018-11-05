@@ -1,0 +1,9 @@
+#root {
+    background-color: #ffcc99;
+}
+
+.feed__container {
+    background-color: white;
+    margin: auto;
+    width: 60%;
+}
