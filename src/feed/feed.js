@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import "./style/feed.css"
+import Publish from "./publish";
+import Post from "./post";
+import "./style/feed.css";
 
 class Feed extends Component {
   render() {
     return (
       <div class="feed__background">
         <div class="feed__container">
-          <h1>Hello world</h1>
+          <Publish />
+          <Post />
         </div>
       </div>
     );

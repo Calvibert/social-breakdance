@@ -1,4 +1,9 @@
+.header__container {
+  background-color: brown;
+  text-align: center;
+}
+
 .header__title {
-    background-color: brown;
-    text-align: center;
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
 }
