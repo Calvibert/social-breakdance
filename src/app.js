@@ -1,14 +1,14 @@
-const express = require('express');
-const router = require('./router');
-const feeder = require('./feeder');
-const config = require('./config');
-const app = express();
-const port = config.c.port;
+import React, { Component } from "react";
+import Router from "./router";
 
-app.set('port', (process.env.PORT || port));
-app.set('view engine', 'pug');
-app.use('/', feeder, router);
+class App extends Component {
+  render() {
+    return (
+      <div className="page__div">
+        <Router />
+      </div>
+    );
+  }
+}
 
-app.listen(app.get('port'), function() {
-  console.log(`Node app is running at localhost: ${app.get('port')}`);
-});
+export default App;

@@ -1,18 +1,15 @@
-const express = require('express');
-const router = express.Router();
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Feed from "./feed/feed";
+import FourOFour from "./general/404";
 
-router.use((req, res, next) => {
-    console.log('Routing at Time: ' + Date.now());
-    next();
-});
+const Router = () => (
+  <main>
+    <Switch>
+      <Route exact path="/" component={Feed} />
+      <Route path="/" component={FourOFour} />
+    </Switch>
+  </main>
+);
 
-router.get('/', (req, res) => {
-    res.render('index', {title: 'Hey', posts: [{name: "Samuel Dufresne", ptitle: "Test post", content: "content1"},
-    {name: "Peter Griffin", ptitle: "this is a title", content: "second content"}]});
-});
-
-router.get('/about', (req, res) => {
-    res.send('About page');
-});
-
-module.exports = router;
+export default Router;
