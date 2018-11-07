@@ -7,7 +7,7 @@ var col;
 exports.connect = function(colName, opName, obj = 0, newObj = 0) {
   MongoClient.connect(
     url,
-    async (err, client) => {
+    (err, client) => {
       if (err) throw err;
 
       col = client.db(dbName).collection(colName);
