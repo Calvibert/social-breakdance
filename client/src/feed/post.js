@@ -7,7 +7,7 @@ class Post extends Component {
     super(props);
     this.state = [];
 
-    Client.search(msg => {
+    Client.search(`/api/post/read/5bcbc5bfdb02989250e06555` ,msg => {
       this.setState({
         message: msg.a
       })

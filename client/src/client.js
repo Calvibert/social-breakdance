@@ -1,5 +1,5 @@
-function search(cb) {
-  return fetch(`/api`, {
+function search(uri, cb) {
+  return fetch(uri, {
     accept: "application/json"
   })
     .then(checkStatus)

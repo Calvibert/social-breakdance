@@ -1,10 +1,29 @@
-const express = require('express')
-const app = express()
-const port = 3001
+const express = require("express");
+const MongoTDG = require("./mongoTDG");
+const objectID = require("mongodb").ObjectID;
+const app = express();
+const port = 3001;
 
+app.get("/api/:colName/:reqType/:objId/", async (req, res) => {
+  const p = req.params;
+  var r = await MongoTDG.connect(
+    p.colName,
+    p.reqType,
+    (obj = { id: objectID("5bcbc5bfdb02989250e06555").str })
+  );
 
-app.get('/api', (req, res) => {
-    res.json({ a: "hello world!" });
+  res.send({ res: r });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.get("/api/:colName/:reqType/", (req, res) => {
+  const p = req.params;
+  const r = MongoTDG.connect(
+    p.colName,
+    p.reqType
+  );
+  res.json({ res: r });
+});
+
+app.post("/api/:colName/:reqType/:objId", (req, res) => {});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
