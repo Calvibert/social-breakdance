@@ -1,9 +1,10 @@
-function search() {
-  return fetch(`/`, {
+function search(cb) {
+  return fetch(`/api`, {
     accept: "application/json"
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(cb);
 }
 
 function checkStatus(response) {
@@ -13,11 +14,12 @@ function checkStatus(response) {
   const error = new Error(`HTTP Error ${response.statusText}`);
   error.status = response.statusText;
   error.response = response;
-  console.log(error);
+
   throw error;
 }
 
 function parseJSON(response) {
+  console.log(response);
   return response.json();
 }
 

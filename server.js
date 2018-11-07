@@ -3,9 +3,8 @@ const app = express()
 const port = 3001
 
 
-app.get('/', (req, res) => {
-    res.setHeader('Content-Type', "application/json");
-    res.send(JSON.stringify({ a: 1 }));
+app.get('/api', (req, res) => {
+    res.json({ a: "hello world!" });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
