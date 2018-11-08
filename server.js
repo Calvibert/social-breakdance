@@ -4,14 +4,15 @@ const objectID = require("mongodb").ObjectID;
 const app = express();
 const port = 3001;
 
-app.get("/api/:colName/:reqType/:objId/", async (req, res) => {
+app.get("/api/:colName/:reqType/:objId/", (req, res) => {
   const p = req.params;
-  var r = await MongoTDG.connect(
+  var r = MongoTDG.connect(
     p.colName,
     p.reqType,
-    (obj = { id: objectID("5bcbc5bfdb02989250e06555").str })
+    (obj = { id: objectID(p.objId) })
   );
 
+  console.log(r);
   res.send({ res: r });
 });
 

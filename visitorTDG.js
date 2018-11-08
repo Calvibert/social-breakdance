@@ -44,6 +44,7 @@ function read() {
     .find(obj)
     .toArray()
     .then(value => {
+      console.log(value);
       return value;
     });
 }

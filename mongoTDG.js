@@ -6,7 +6,7 @@ var col;
 
 exports.connect = function(colName, opName, obj = 0, newObj = 0) {
   MongoClient.connect(
-    url,
+    url, 
     (err, client) => {
       if (err) throw err;
 
@@ -16,6 +16,7 @@ exports.connect = function(colName, opName, obj = 0, newObj = 0) {
       client.close();
 
       return result;
-    }
+    },
+    {useNewUrlParser: true}
   );
 };
