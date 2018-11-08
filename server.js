@@ -1,5 +1,5 @@
 const express = require("express");
-const MongoTDG = require("./mongoTDG");
+const MongoTDG = require("./persistence/mongoTDG");
 const app = express();
 const port = 3001;
 
