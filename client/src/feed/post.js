@@ -7,19 +7,24 @@ class Post extends Component {
     super(props);
     this.state = [];
 
-    Client.search(`/api/post/read/5bcbc5bfdb02989250e06555` ,msg => {
+    Client.search(`/api/post/read/5bcbc5bfdb02989250e06555/`, msg => {
       this.setState({
-        message: msg.a
+        title: msg.result[0].title,
+        body: msg.result[0].content
       })
     });
+  }
+
+  parsePosts() {
+
   }
 
   render() {
     return (
       <div className="post__container">
         <div className="post__content">
-          <h1 className="post__post-title">{this.state.message}</h1>
-          <h2 className="post__post-content">This is content</h2>
+          <h1 className="post__post-title">{this.state.title}</h1>
+          <h2 className="post__post-content">{this.state.body}</h2>
         </div>
       </div>
     );
