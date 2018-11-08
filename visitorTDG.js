@@ -1,11 +1,13 @@
 var col;
 var obj;
 var newObj;
+var res;
 
-exports.dispatch = async function(collection, operation, object = 0, newObject = 0) {
+exports.dispatch = async function(response, collection, operation, object = 0, newObject = 0) {
   col = collection;
   obj = object;
   newObj = newObject;
+  res = response;
 
   switch (operation) {
     case "create":
@@ -13,11 +15,7 @@ exports.dispatch = async function(collection, operation, object = 0, newObject =
     case "remove":
       return remove();
     case "read":
-      let r = await read().then((result) => {
-          return result;
-      });
-      console.log(r);
-      return r;
+      return read();
     case "update":
       return update();
     default:
@@ -48,8 +46,8 @@ function read() {
   col
     .find(obj)
     .toArray()
-    .then(value => {
-      return value;
+    .then((value) => {
+      res.json({result: value})
     });
 }
 
