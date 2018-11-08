@@ -7,7 +7,7 @@ var res;
 exports.dispatch = async function(request, response, collection, operation) {
   col = collection;
   obj = { _id: objectID(request.params.objId) };
-  // newObj = request.params.newObj;
+  newObj = request.params.newObj;
   res = response;
 
   switch (operation) {
@@ -26,16 +26,24 @@ exports.dispatch = async function(request, response, collection, operation) {
 
 function create() {
   if (!obj) {
+    console.log("Error creating");
     return;
   }
-  return col.insert(obj);
+
+  col.insert(obj).then(value => {
+    res.json({ result: value });
+  });
 }
 
 function remove() {
   if (!obj) {
+    console.log("Error removing");
     return;
   }
-  return col.deleteOne(obj);
+
+  col.deleteOne(obj).then(value => {
+    res.json({ result: value });
+  });
 }
 
 function read() {
@@ -54,7 +62,11 @@ function read() {
 
 function update() {
   if (!obj && !newObj) {
+    console.log("Error updating");
     return;
   }
-  return col.updateOne(obj, { $set: newObj });
+
+  col.updateOne(obj, { $set: newObj }).then(value => {
+    res.json({ result: value });
+  });
 }
