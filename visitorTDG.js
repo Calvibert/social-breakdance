@@ -1,12 +1,13 @@
+const objectID = require("mongodb").ObjectID;
 var col;
 var obj;
 var newObj;
 var res;
 
-exports.dispatch = async function(response, collection, operation, object = 0, newObject = 0) {
+exports.dispatch = async function(request, response, collection, operation) {
   col = collection;
-  obj = object;
-  newObj = newObject;
+  obj = { _id: objectID(request.params.objId) };
+  // newObj = request.params.newObj;
   res = response;
 
   switch (operation) {
@@ -39,15 +40,15 @@ function remove() {
 
 function read() {
   if (!obj) {
-    console.log('error');
+    console.log("error reading");
     return;
   }
 
   col
     .find(obj)
     .toArray()
-    .then((value) => {
-      res.json({result: value})
+    .then(value => {
+      res.json({ result: value });
     });
 }
 

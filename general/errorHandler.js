@@ -1,0 +1,1 @@
+// take an argument and log the error somewhere
