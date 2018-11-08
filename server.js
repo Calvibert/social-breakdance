@@ -10,4 +10,8 @@ app.get("/api/:colName/:opName/:objId/", (req, res) => {
   );
 });
 
+app.post("/api/:colName/:opName/", (req, res) => {
+  MongoTDG.connect(req, res);
+})
+
 app.listen(port, () => console.log(`Bleuet API listening on port ${port}!`));
