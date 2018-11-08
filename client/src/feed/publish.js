@@ -16,10 +16,8 @@ class Publish extends Component {
   }
 
   handleSubmit(event) {
-    const url = `/api/post/create/`;
-    const data = this.state;
-    console.log(data);
-    Request.postData(url, data);
+    const url = "/api/post/create";
+    Request.postData(url, {content: this.state.content});
   }
 
   render() {

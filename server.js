@@ -9,14 +9,15 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get("/api/:colName/:opName/:objId/", (req, res) => {
+  console.log('get');
   MongoTDG.connect(
     req,
     res
   );
 });
 
-app.post("/api/:colName/:opName/", (req, res) => {
-  console.log(req.body);
+app.post("/api/:colName/:opName/$", (req, res) => {
+  console.log('post');
   MongoTDG.connect(req, res);
 })
 

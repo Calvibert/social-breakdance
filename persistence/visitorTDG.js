@@ -8,7 +8,7 @@ exports.dispatch = async function(request, response, collection, operation) {
   col = collection;
   obj = { _id: objectID(request.params.objId) };
   newObj = request.body;
-  console.log(newObj);
+  // console.log(newObj);
   res = response;
 
   switch (operation) {
