@@ -16,7 +16,6 @@ exports.connect = function(colName, opName, obj = 0, newObj = 0) {
       client.close();
 
       return result;
-    },
-    {useNewUrlParser: true}
+    }
   );
 };

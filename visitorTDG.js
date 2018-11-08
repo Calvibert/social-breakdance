@@ -37,9 +37,12 @@ function remove() {
 
 function read() {
   if (!obj) {
+    console.log('error');
     return;
   }
 
+  console.log('object');
+  console.log(obj);
   col
     .find(obj)
     .toArray()
