@@ -7,7 +7,8 @@ var res;
 exports.dispatch = async function(request, response, collection, operation) {
   col = collection;
   obj = { _id: objectID(request.params.objId) };
-  newObj = request.params.newObj;
+  newObj = request.body;
+  console.log(newObj);
   res = response;
 
   switch (operation) {
@@ -25,12 +26,12 @@ exports.dispatch = async function(request, response, collection, operation) {
 };
 
 function create() {
-  if (!obj) {
+  if (!newObj) {
     console.log("Error creating");
     return;
   }
 
-  col.insert(obj).then(value => {
+  col.insertOne(newObj).then(value => {
     res.json({ result: value });
   });
 }
