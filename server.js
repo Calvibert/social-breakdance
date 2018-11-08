@@ -12,8 +12,7 @@ app.get("/api/:colName/:reqType/:objId/", (req, res) => {
     obj = { _id: objectID(p.objId) }
   );
 
-  console.log(r);
-  res.send({ res: r });
+  res.json({ res: r });
 });
 
 app.get("/api/:colName/:reqType/", (req, res) => {

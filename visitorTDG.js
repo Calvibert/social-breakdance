@@ -2,7 +2,7 @@ var col;
 var obj;
 var newObj;
 
-exports.dispatch = function(collection, operation, object = 0, newObject = 0) {
+exports.dispatch = async function(collection, operation, object = 0, newObject = 0) {
   col = collection;
   obj = object;
   newObj = newObject;
@@ -13,7 +13,11 @@ exports.dispatch = function(collection, operation, object = 0, newObject = 0) {
     case "remove":
       return remove();
     case "read":
-      return read();
+      let r = await read().then((result) => {
+          return result;
+      });
+      console.log(r);
+      return r;
     case "update":
       return update();
     default:

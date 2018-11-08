@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Publish from "./publish";
 import Post from "./post";
 import "./style/feed.css";
-// const tdg = require("../persistence/mongoTDG");
 
 class Feed extends Component {
   render() {
