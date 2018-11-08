@@ -9,7 +9,7 @@ app.get("/api/:colName/:reqType/:objId/", (req, res) => {
   var r = MongoTDG.connect(
     p.colName,
     p.reqType,
-    obj = { id: objectID(p.objId) }
+    obj = { _id: objectID(p.objId) }
   );
 
   console.log(r);

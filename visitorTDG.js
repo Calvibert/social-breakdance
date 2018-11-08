@@ -41,13 +41,10 @@ function read() {
     return;
   }
 
-  console.log('object');
-  console.log(obj);
   col
     .find(obj)
     .toArray()
     .then(value => {
-      console.log(value);
       return value;
     });
 }
