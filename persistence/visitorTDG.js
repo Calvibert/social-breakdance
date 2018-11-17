@@ -53,7 +53,7 @@ function remove() {
 
 function read() {
   if (!obj) {
-    console.log("error reading");
+    console.log("Error reading");
     return;
   }
 
