@@ -8,7 +8,6 @@ exports.dispatch = async function(request, response, collection, operation) {
   col = collection;
   obj = { _id: objectID(request.params.objId) };
   newObj = request.body;
-  // console.log(newObj);
   res = response;
 
   switch (operation) {
@@ -28,6 +27,11 @@ exports.dispatch = async function(request, response, collection, operation) {
 function create() {
   if (!newObj) {
     console.log("Error creating");
+    return;
+  }
+
+  if (Object.keys(newObj).length === 0) {
+    console.log("Nothing to create");
     return;
   }
 

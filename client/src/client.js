@@ -7,6 +7,16 @@ function search(uri, cb) {
     .then(cb);
 }
 
+function post(uri, data) {
+  var url = uri;
+  var params = "content=" + data;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send(params);
+}
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -22,5 +32,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { search };
+const Client = { search, post };
 export default Client;

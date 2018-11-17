@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style/feed.css";
-import Request from "../library/request";
+import Client from "../client";
 
 class Publish extends Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Publish extends Component {
   }
 
   handleSubmit(event) {
-    const url = "/api/post/create";
-    Request.postData(url, {content: this.state.content});
+    const url = "/api/post/create/";
+    Client.post(url, this.state.content);
   }
 
   render() {
