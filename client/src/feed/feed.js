@@ -4,6 +4,14 @@ import Post from "./post";
 import "./style/feed.css";
 
 class Feed extends Component {
+  constructor(props) {
+    super(props);
+
+    if (document.cookie.indexOf("user=") >= 0) {
+      //redirect to "/login"
+    }
+  }
+
   render() {
     return (
       <div className="feed__background">
