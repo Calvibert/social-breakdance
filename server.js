@@ -14,6 +14,7 @@ app.use(
 app.post("/api/login/", (req, res) => {
   console.log('catch!');
   console.log(req.body);
+  res.cookie("user", req.body);
 });
 
 app.get("/api/:colName/:opName/:objId/", (req, res) => {
