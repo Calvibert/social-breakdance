@@ -25,22 +25,22 @@ class Form extends Component {
   handleSubmit(event) {
     const url = "/api/login/";
     const data = { email: this.state.email, password: this.state.password };
-    
+
     Client.post(url, data);
   }
 
   render() {
     return (
       <div className="form__container">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Email:
-            <input type="text" name="email" />
+            <input type="text" name="email" onChange={this.handleEmailChange} />
           </label>
           <br />
           <label>
             Password:
-            <input type="password" name="password" />
+            <input type="password" name="password" onChange={this.handlePasswordChange} />
           </label>
           <br />
           <input type="submit" value="Submit" />
