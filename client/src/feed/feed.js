@@ -7,8 +7,8 @@ class Feed extends Component {
   constructor(props) {
     super(props);
 
-    if (document.cookie.indexOf("user=") >= 0) {
-      //redirect to "/login"
+    if (document.cookie.indexOf("user=") < 0) {
+      window.location = "/login/";
     }
   }
 
