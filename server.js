@@ -11,6 +11,11 @@ app.use(
   })
 );
 
+app.post("/api/login/", (req, res) => {
+  console.log('catch!');
+  console.log(req.body);
+});
+
 app.get("/api/:colName/:opName/:objId/", (req, res) => {
   // Log the request.
 
@@ -22,7 +27,7 @@ app.get("/api/:colName/:opName/:objId/", (req, res) => {
 
 app.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
-
+  console.log(req.body);
   MongoTDG.connect(
     req,
     res

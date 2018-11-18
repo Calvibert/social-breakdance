@@ -17,7 +17,7 @@ class Publish extends Component {
 
   handleSubmit(event) {
     const url = "/api/post/create/";
-    Client.post(url, this.state.content);
+    Client.post(url, { "content": this.state.content });
   }
 
   render() {

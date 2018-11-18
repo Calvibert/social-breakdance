@@ -7,9 +7,16 @@ function search(uri, cb) {
     .then(cb);
 }
 
-function post(uri, data) {
-  var url = uri;
-  var params = "content=" + data;
+function post(url, data) {
+  var params = "";
+  for (var k in data) {
+    if (data.hasOwnProperty(k)) {
+      params += k + "=" + data[k] + "&";
+    }
+  };
+  params = params.slice(0, -1);
+  console.log(params);
+
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
 
