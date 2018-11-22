@@ -12,7 +12,7 @@ app.use(
 );
 
 app.post("/api/login/", (req, res) => {
-  res.setHeader("Set-Cookie", "user=cookie value");
+  res.cookie("user", "user cookie value");
   res.send("cookie sent!");
 });
 
