@@ -12,11 +12,13 @@ app.use(
 );
 
 app.post("/api/login/", (req, res) => {
-
   req.params.colName = "user";
   req.params.opName = "read";
 
-  MongoTDG.connect(req, res);
+  MongoTDG.connect(
+    req,
+    res
+  );
   res.cookie("user", "user cookie value");
   res.send("cookie sent!");
 });
@@ -30,15 +32,12 @@ app.get("/api/:colName/:opName/:obj/", (req, res) => {
 app.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
   console.log(req.body);
-  MongoTDG.connect(
-    req,
-    res
-  );
+
+  helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
 });
 
 app.get("/api/post/many", (req, res) => {
   // fetchHelper.get
-
-})
+});
 
 app.listen(port, () => console.log(`Bleuet API listening on port ${port}!`));

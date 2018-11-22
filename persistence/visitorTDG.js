@@ -27,17 +27,17 @@ exports.dispatch = async function(response, collection, params) {
 };
 
 function create() {
-  if (!obj) {
+  if (!newObj) {
     console.log("Error creating");
     return;
   }
 
-  if (Object.keys(obj).length === 0) {
+  if (Object.keys(newObj).length === 0) {
     console.log("Nothing to create");
     return;
   }
 
-  col.insertOne(obj).then(value => {
+  col.insertOne(newObj).then(value => {
     res.json({ result: value });
   });
 }
