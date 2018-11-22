@@ -15,11 +15,9 @@ app.post("/api/login/", (req, res) => {
   req.params.colName = "user";
   req.params.opName = "read";
 
-  MongoTDG.connect(
-    req,
-    res
-  );
   res.cookie("user", "user cookie value");
+
+  helperTDG.retrieve(req, res, "user", "read");
   res.send("cookie sent!");
 });
 
