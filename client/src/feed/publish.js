@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./style/feed.css";
 import Client from "../client";
 
-class Publish extends Component {
+export default class Publish extends Component {
   constructor(props) {
     super(props);
     this.state = { content: "" };
@@ -36,5 +36,3 @@ class Publish extends Component {
     );
   }
 }
-
-export default Publish;

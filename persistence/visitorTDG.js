@@ -1,16 +1,18 @@
 const objectID = require("mongodb").ObjectID;
 var col;
+var op;
 var obj;
 var newObj;
 var res;
 
-exports.dispatch = async function(request, response, collection, operation) {
+exports.dispatch = async function(response, collection, params) {
   col = collection;
-  obj = { _id: objectID(request.params.objId) };
-  newObj = request.body;
+  op = params.opName;
+  obj = params.object;
+  newObj = params.newObject;
   res = response;
 
-  switch (operation) {
+  switch (op) {
     case "create":
       return create();
     case "remove":
@@ -25,17 +27,17 @@ exports.dispatch = async function(request, response, collection, operation) {
 };
 
 function create() {
-  if (!newObj) {
+  if (!obj) {
     console.log("Error creating");
     return;
   }
 
-  if (Object.keys(newObj).length === 0) {
+  if (Object.keys(obj).length === 0) {
     console.log("Nothing to create");
     return;
   }
 
-  col.insertOne(newObj).then(value => {
+  col.insertOne(obj).then(value => {
     res.json({ result: value });
   });
 }

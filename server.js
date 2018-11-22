@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const MongoTDG = require("./persistence/mongoTDG");
-const fetchHelper = require("./persistence/fetchHelper");
+const helperTDG = require("./persistence/helperTDG");
 const app = express();
 const port = 3001;
 
@@ -12,17 +12,19 @@ app.use(
 );
 
 app.post("/api/login/", (req, res) => {
+
+  req.params.colName = "user";
+  req.params.opName = "read";
+
+  MongoTDG.connect(req, res);
   res.cookie("user", "user cookie value");
   res.send("cookie sent!");
 });
 
-app.get("/api/:colName/:opName/:objId/", (req, res) => {
+app.get("/api/:colName/:opName/:obj/", (req, res) => {
   // Log the request.
 
-  MongoTDG.connect(
-    req,
-    res
-  );
+  helperTDG.retrieveWithId(req, res, req.params.colName, req.params.opName);
 });
 
 app.post("/api/:colName/:opName/", (req, res) => {
