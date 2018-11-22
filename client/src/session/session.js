@@ -4,9 +4,7 @@ function dropCookie(name, content) {
 }
 
 function checkSession() {
-  if (document.cookie.indexOf("user=") < 0) {
-    window.location = "/login/";
-  } else {
+  if (document.cookie.indexOf("user=") >= 0) {
     window.location = "/";
   }
 }

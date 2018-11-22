@@ -4,7 +4,7 @@ import Session from "../session/session";
 import "./style/login.css";
 
 export default class Login extends Component {
-  componentDidMount() {
+  componentWillMount() {
     Session.checkSession();
   }
 
