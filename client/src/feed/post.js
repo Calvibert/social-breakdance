@@ -5,7 +5,7 @@ import Client from "../client";
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = [];
+    this.state = {};
 
     Client.search(`/api/post/read/5bcbc5bfdb02989250e06555/`, msg => {
       this.setState({

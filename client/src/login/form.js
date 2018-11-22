@@ -27,6 +27,8 @@ class Form extends Component {
     const data = { email: this.state.email, password: this.state.password };
 
     Client.post(url, data);
+    document.cookie = "user=samuel dufresne";
+    window.location = "/";
   }
 
   render() {

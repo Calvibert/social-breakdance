@@ -12,9 +12,8 @@ app.use(
 );
 
 app.post("/api/login/", (req, res) => {
-  console.log('catch!');
-  console.log(req.body);
-  res.cookie("user", req.body);
+  res.setHeader("Set-Cookie", "user=cookie value");
+  res.send("cookie sent!");
 });
 
 app.get("/api/:colName/:opName/:objId/", (req, res) => {

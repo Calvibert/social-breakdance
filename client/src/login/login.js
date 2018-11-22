@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import Form from "./form";
+import Session from "../session/session";
 import "./style/login.css";
 
-class Login extends Component {
+export default class Login extends Component {
+  componentDidMount() {
+    Session.checkSession();
+  }
+
   render() {
     return (
       <div className="login__background">
@@ -13,5 +18,3 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;
