@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const MongoTDG = require("./persistence/mongoTDG");
-const helperTDG = require("./persistence/helperTDG");
+const HelperTDG = require("./persistence/helperTDG");
 const app = express();
 const port = 3001;
 
@@ -17,21 +17,21 @@ app.post("/api/login/", (req, res) => {
 
   res.cookie("user", "user cookie value");
 
-  helperTDG.retrieve(req, res, "user", "read");
+  HelperTDG.retrieve(req, res, "user", "read");
   res.send("cookie sent!");
 });
 
 app.get("/api/:colName/:opName/:obj/", (req, res) => {
   // Log the request.
 
-  helperTDG.retrieveWithId(req, res, req.params.colName, req.params.opName);
+  HelperTDG.retrieveWithId(req, res, req.params.colName, req.params.opName);
 });
 
 app.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
   console.log(req.body);
 
-  helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
+  HelperTDG.retrieve(req, res, req.params.colName, req.params.opName);
 });
 
 app.get("/api/post/many", (req, res) => {
