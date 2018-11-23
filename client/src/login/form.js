@@ -42,7 +42,11 @@ export default class Form extends Component {
           <br />
           <label>
             Password:
-            <input type="password" name="password" onChange={this.handlePasswordChange} />
+            <input
+              type="password"
+              name="password"
+              onChange={this.handlePasswordChange}
+            />
           </label>
           <br />
           <input type="submit" value="Submit" />
