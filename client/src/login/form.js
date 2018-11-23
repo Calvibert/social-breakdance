@@ -9,17 +9,21 @@ export default class Form extends Component {
       password: ""
     };
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value });
+  handleChange(event, option = 0) {
+    switch (option) {
+      case "email":
+        this.setState({ email: event.target.value });
+        break;
+      case "password":
+        this.setState({ password: event.target.value });
+        break;
+      default:
+        break;
+    }
   }
 
   handleSubmit(event) {
@@ -37,7 +41,11 @@ export default class Form extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Email:
-            <input type="text" name="email" onChange={this.handleEmailChange} />
+            <input
+              type="text"
+              name="email"
+              onChange={e => this.handleChange(e, "email")}
+            />
           </label>
           <br />
           <label>
@@ -45,7 +53,7 @@ export default class Form extends Component {
             <input
               type="password"
               name="password"
-              onChange={this.handlePasswordChange}
+              onChange={e => this.handleChange(e, "password")}
             />
           </label>
           <br />
