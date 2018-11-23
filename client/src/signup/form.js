@@ -104,7 +104,6 @@ export default class Form extends Component {
               onChange={e => this.handleChange(e, "birthdateDay")}
             />
             <select
-              value={this.state.birthdateMonth}
               onChange={e => this.handleChange(e, "birthdateDonth")}
             >
               <option value="Janvier">Janvier</option>
