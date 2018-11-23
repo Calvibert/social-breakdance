@@ -37,7 +37,7 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div className="form__container">
+      <div className="login-form__container">
         <form onSubmit={this.handleSubmit}>
           <label>
             Email:
