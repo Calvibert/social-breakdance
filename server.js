@@ -11,13 +11,20 @@ app.use(
   })
 );
 
+app.post("/api/signup", (req, res) => {
+  req.params.colName = "user";
+  req.params.opName = "create";
+
+  HelperTDG.retrieveWithBody(req, res, req.params.colName, req.params.opName);
+})
+
 app.post("/api/login/", (req, res) => {
   req.params.colName = "user";
   req.params.opName = "read";
 
   res.cookie("user", "user cookie value");
 
-  HelperTDG.retrieve(req, res, "user", "read");
+  HelperTDG.retrieve(req, res, req.params.colName, req.params.opName);
   res.send("cookie sent!");
 });
 

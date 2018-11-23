@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Client from "../client";
 
 export default class Form extends Component {
   constructor(props) {
@@ -65,7 +66,13 @@ export default class Form extends Component {
     }
   }
 
-  handleSubmit(event) {}
+  handleSubmit(event) {
+    const url = "/api/signup/";
+    const data = this.state;
+
+    Client.post(url, data);
+    window.location = "/";
+  }
 
   render() {
     return (

@@ -28,10 +28,9 @@ export default class Form extends Component {
 
   handleSubmit(event) {
     const url = "/api/login/";
-    const data = { email: this.state.email, password: this.state.password };
+    const data = this.state;
 
     Client.post(url, data);
-    document.cookie = "user=samuel dufresne";
     window.location = "/";
   }
 
