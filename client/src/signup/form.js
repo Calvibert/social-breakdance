@@ -9,6 +9,11 @@ export default class Form extends Component {
       birthdateDay: "",
       birthdateMonth: "",
       birthdateYear: "",
+      addressOne: "",
+      addressTwo: "",
+      city: "",
+      country: "",
+      zipCode: "",
       password: "",
       passwordConfirm: ""
     };
@@ -33,6 +38,21 @@ export default class Form extends Component {
         break;
       case "birthdateYear":
         this.setState({ birthdateYear: event.target.value });
+        break;
+      case "addressOne":
+        this.setState({ addressOne: event.target.value });
+        break;
+      case "addressTwo":
+        this.setState({ addressTwo: event.target.value });
+        break;
+      case "city":
+        this.setState({ city: event.target.value });
+        break;
+      case "country":
+        this.setState({ country: event.target.value });
+        break;
+      case "zipCode":
+        this.setState({ zipCode: event.target.value });
         break;
       case "password":
         this.setState({ password: event.target.value });
@@ -101,7 +121,46 @@ export default class Form extends Component {
           </label>
           <br />
           <label>
-            Password:
+            Addresse:
+            <input
+              type="text"
+              name="addressOne"
+              onChange={e => this.handleChange(e, "addressOne")}
+            />
+            <input
+              type="text"
+              name="addressTwo"
+              onChange={e => this.handleChange(e, "addressTwo")}
+            />
+          </label>
+          <br />
+          <label>
+            Ville:
+            <input
+              type="text"
+              name="city"
+              onChange={e => this.handleChange(e, "city")}
+            />
+          </label>
+          <label>
+            Pays:
+            <input
+              type="text"
+              name="country"
+              onChange={e => this.handleChange(e, "country")}
+            />
+          </label>
+          <label>
+            Code postal:
+            <input
+              type="text"
+              name="zipCode"
+              onChange={e => this.handleChange(e, "zipCode")}
+            />
+          </label>
+          <br />
+          <label>
+            Mot de passe:
             <input
               type="password"
               name="password"
@@ -110,7 +169,7 @@ export default class Form extends Component {
           </label>
           <br />
           <label>
-            Confirm Password:
+            Confirmation du mot de passe:
             <input
               type="password"
               name="confirm-password"
