@@ -34,3 +34,15 @@ exports.retrieveWithId = function(request, response, colName, opName) {
     params
   );
 };
+
+exports.retrieveWithBody = function(request, response, colName, opName) {
+  var params = {
+    colName: colName,
+    opName: opName,
+    object: request.body
+  };
+  MongoTDG.connect(
+    response,
+    params
+  );
+};

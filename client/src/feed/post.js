@@ -7,7 +7,7 @@ export default class Post extends Component {
     super(props);
     this.state = {};
 
-    Client.search(`/api/post/read/5bcbc5bfdb02989250e06555/`, msg => {
+    Client.search(`/api/post/read/`, msg => {
       this.setState({
         title: msg.result[0].title,
         body: msg.result[0].content

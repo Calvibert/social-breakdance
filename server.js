@@ -21,6 +21,10 @@ app.post("/api/login/", (req, res) => {
   res.send("cookie sent!");
 });
 
+app.get("/api/all/:colName/:opName/", (req, res) => {
+  HelperTDG.retrieve(req, res, req.params.colName, req.params.opName);
+});
+
 app.get("/api/:colName/:opName/:obj/", (req, res) => {
   // Log the request.
 
