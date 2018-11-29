@@ -27,13 +27,7 @@ exports.dispatch = async function(response, collection, params) {
 };
 
 function create() {
-  if (!newObj) {
-    console.log("Error creating");
-    return;
-  }
-
-  if (Object.keys(newObj).length === 0) {
-    console.log("Nothing to create");
+  if (!newObj || Object.keys(newObj).length === 0) {
     return;
   }
 
@@ -44,7 +38,6 @@ function create() {
 
 function remove() {
   if (!obj) {
-    console.log("Error removing");
     return;
   }
 
@@ -55,7 +48,6 @@ function remove() {
 
 function read() {
   if (!obj) {
-    console.log("Error reading");
     return;
   }
 
@@ -69,7 +61,6 @@ function read() {
 
 function update() {
   if (!obj && !newObj) {
-    console.log("Error updating");
     return;
   }
 
