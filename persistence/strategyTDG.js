@@ -28,11 +28,7 @@ function create() {
     return "Create Error: Nothing to create";
   }
 
-  col.insertOne(obj).then(value => {
-    // return value.ops;
-    // return obj;
-  });
-  return obj;
+  return col.insertOne(obj);
 }
 
 function read() {

@@ -3,7 +3,13 @@ const strategy = require("./strategyTDG");
 const url = "mongodb://127.0.0.1:27017/";
 const dbName = "soc-plat";
 
-exports.operate = function(collectionName, operation, object, newObject = 0) {
+exports.operate = function(
+  collectionName,
+  operation,
+  object,
+  // newObject = 0,
+  callback
+) {
   MongoClient.connect(
     url,
     { useNewUrlParser: true },
@@ -11,11 +17,13 @@ exports.operate = function(collectionName, operation, object, newObject = 0) {
       if (err) throw err;
 
       var collection = client.db(dbName).collection(collectionName);
-      var result = strategy.dispatch(collection, operation, object, newObject);
+      var result = strategy.dispatch(collection, operation, object);
 
       client.close();
 
-      return result;
+      result.then((result) => {
+        callback(result.ops);
+      });
     }
   );
 };

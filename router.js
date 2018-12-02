@@ -9,6 +9,13 @@ router.use((req, res, next) => {
 });
 
 router.get("/api/hello", (req, res) => {
+  var tdg = factoryTDG.factory();
+  var object = {
+    object: "test object content"
+  };
+  tdg.operate("test", "create", object, result => {
+    temp = result;
+  });
   res.send("hello there.");
 });
 
@@ -16,7 +23,6 @@ router.post("/api/signup", (req, res) => {
   req.params.colName = "user";
   req.params.opName = "create";
   console.log(req.body);
-
 });
 
 router.post("/api/login/", (req, res) => {
@@ -39,7 +45,6 @@ router.get("/api/:colName/:opName/:obj/", (req, res, next) => {
 router.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
   console.log(req.body);
-
 });
 
 router.get("/api/post/many", (req, res) => {
