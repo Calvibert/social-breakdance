@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Calvibert/social-breakdance#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "concurrently": "^4.0.1",
     "mocha": "^5.2.0"
   },
