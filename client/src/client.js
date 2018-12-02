@@ -15,12 +15,12 @@ function post(url, data) {
     }
   };
   params = params.slice(0, -1);
-
+  console.log(params);
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
-
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send(params);
+  console.log(data);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.send(JSON.stringify(data));
 }
 
 function checkStatus(response) {

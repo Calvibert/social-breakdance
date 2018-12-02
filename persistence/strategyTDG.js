@@ -15,12 +15,12 @@ exports.dispatch = async function(response, collection, params) {
   switch (op) {
     case "create":
       return create();
-    case "remove":
-      return remove();
     case "read":
       return read();
     case "update":
       return update();
+    case "remove":
+      return remove();
     default:
       return "Invalid operation";
   }
@@ -32,17 +32,7 @@ function create() {
   }
 
   col.insertOne(newObj).then(value => {
-    res.json({ result: value });
-  });
-}
-
-function remove() {
-  if (!obj) {
-    return;
-  }
-
-  col.deleteOne(obj).then(value => {
-    res.json({ result: value });
+    return value;
   });
 }
 
@@ -55,7 +45,7 @@ function read() {
     .find(obj)
     .toArray()
     .then(value => {
-      res.json({ result: value });
+      return value;
     });
 }
 
@@ -65,6 +55,16 @@ function update() {
   }
 
   col.updateOne(obj, { $set: newObj }).then(value => {
-    res.json({ result: value });
+    return value;
+  });
+}
+
+function remove() {
+  if (!obj) {
+    return;
+  }
+
+  col.deleteOne(obj).then(value => {
+    return value;
   });
 }

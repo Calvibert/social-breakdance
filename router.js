@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const helperTDG = require("./persistence/helperTDG");
 const router = express.Router();
 
@@ -7,6 +8,12 @@ router.use((req, res, next) => {
   next();
 });
 
+router.use(
+    bodyParser.urlencoded({
+      extended: true
+    })
+  );
+
 router.get("/api/hello", (req, res) => {
   res.send("hello there.");
 });
@@ -14,11 +21,13 @@ router.get("/api/hello", (req, res) => {
 router.post("/api/signup", (req, res) => {
   req.params.colName = "user";
   req.params.opName = "create";
+  console.log(req.body);
 
   helperTDG.retrieveWithBody(req, res, req.params.colName, req.params.opName);
 });
 
 router.post("/api/login/", (req, res) => {
+  console.log(req.body);
   req.params.colName = "user";
   req.params.opName = "read";
 

@@ -4,6 +4,9 @@ const noPosts = 5;
 
 var exports = (module.exports = {});
 
+// 4 CRUD operations.
+// Right now, it is coupled to the req & res objects
+
 exports.getManyPosts = function(numberOfPosts = 0) {
   noPosts = numberOfPosts | noPosts;
 

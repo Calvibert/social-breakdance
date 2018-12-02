@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const visitor = require("./visitorTDG");
+const visitor = require("./strategyTDG");
 const url = "mongodb://127.0.0.1:27017/";
 const dbName = "soc-plat";
 
