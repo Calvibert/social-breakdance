@@ -25,7 +25,9 @@ exports.operate = function(
         .then(result => {
           callback(result.ops);
         })
-        .catch(error => {});
+        .catch(error => {
+          callback(error);
+        });
     }
   );
 };
