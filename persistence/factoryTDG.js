@@ -4,48 +4,11 @@ const noPosts = 5;
 
 var exports = (module.exports = {});
 
-// 4 CRUD operations.
-// Right now, it is coupled to the req & res objects
-
-exports.getManyPosts = function(numberOfPosts = 0) {
-  noPosts = numberOfPosts | noPosts;
-
-  var posts = [];
-};
-
-exports.retrieve = function(request, response, colName, opName) {
-  var params = {
-    colName: colName,
-    opName: opName,
-    object: request.params.obj,
-    newObject: request.body
-  };
-  MongoTDG.connect(
-    response,
-    params
-  );
-};
-
-exports.retrieveWithId = function(request, response, colName, opName) {
-  var params = {
-    colName: colName,
-    opName: opName,
-    object: { _id: objectID(request.params.obj) }
-  };
-  MongoTDG.connect(
-    response,
-    params
-  );
-};
-
-exports.retrieveWithBody = function(request, response, colName, opName) {
-  var params = {
-    colName: colName,
-    opName: opName,
-    object: request.body
-  };
-  MongoTDG.connect(
-    response,
-    params
-  );
+exports.factory = function(name = 0) {
+  switch (name) {
+    case "mongoDB":
+      return MongoTDG;
+    default:
+      return MongoTDG;
+  }
 };

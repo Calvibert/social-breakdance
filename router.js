@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const helperTDG = require("./persistence/factoryTDG");
+const factoryTDG = require("./persistence/factoryTDG");
 const router = express.Router();
 
 router.use((req, res, next) => {
@@ -33,25 +33,21 @@ router.post("/api/login/", (req, res) => {
 
   res.cookie("user", "user cookie value");
 
-  helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
+  const tdg = factoryTDG.factory();
+  // tdg.connect(req, res, req.params.colName, req.params.opName);
   res.send("cookie sent!");
 });
 
-router.get("/api/all/:colName/:opName/", (req, res) => {
-  helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
-});
-
-router.get("/api/:colName/:opName/:obj/", (req, res) => {
-  // Log the request.
-
-  helperTDG.retrieveWithId(req, res, req.params.colName, req.params.opName);
+router.get("/api/:colName/:opName/:obj/", (req, res, next) => {
+  // log the request
+  next();
 });
 
 router.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
   console.log(req.body);
 
-  helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
+  // helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
 });
 
 router.get("/api/post/many", (req, res) => {
