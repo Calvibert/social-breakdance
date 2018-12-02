@@ -1,4 +1,4 @@
-const TDG = require("../persistence/helperTDG");
+const TDG = require("../persistence/factoryTDG");
 var exports = (module.exports = {});
 
 exports.makePost(post) = function() {

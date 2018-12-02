@@ -1,18 +1,14 @@
 const objectID = require("mongodb").ObjectID;
 var col;
-var op;
 var obj;
 var newObj;
-var res;
 
-exports.dispatch = async function(response, collection, params) {
+exports.dispatch = async function(collection, operation, object, newObject) {
   col = collection;
-  op = params.opName;
-  obj = params.object;
-  newObj = params.newObject;
-  res = response;
+  obj = object;
+  newObj = newObject;
 
-  switch (op) {
+  switch (operation) {
     case "create":
       return create();
     case "read":

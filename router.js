@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const helperTDG = require("./persistence/helperTDG");
+const helperTDG = require("./persistence/factoryTDG");
 const router = express.Router();
 
 router.use((req, res, next) => {
