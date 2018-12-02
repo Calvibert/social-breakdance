@@ -9,13 +9,6 @@ router.use((req, res, next) => {
 });
 
 router.get("/api/hello", (req, res) => {
-  var tdg = factoryTDG.factory();
-  var object = {
-    object: "test object content"
-  };
-  tdg.operate("test", "create", object, result => {
-    temp = result;
-  });
   res.send("hello there.");
 });
 

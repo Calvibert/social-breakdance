@@ -21,11 +21,11 @@ exports.operate = function(
 
       client.close();
 
-      result.then((result) => {
-        callback(result.ops);
-      }).catch(error => {
-        
-      });
+      result
+        .then(result => {
+          callback(result.ops);
+        })
+        .catch(error => {});
     }
   );
 };
