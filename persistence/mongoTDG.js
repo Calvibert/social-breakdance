@@ -7,7 +7,7 @@ exports.operate = function(
   collectionName,
   operation,
   object,
-  // newObject = 0,
+  newObject = 0,
   callback
 ) {
   MongoClient.connect(
@@ -23,6 +23,8 @@ exports.operate = function(
 
       result.then((result) => {
         callback(result.ops);
+      }).catch(error => {
+        
       });
     }
   );
