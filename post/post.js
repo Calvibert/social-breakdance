@@ -4,5 +4,5 @@ var exports = (module.exports = {});
 exports.makePost = function(post) {
     const tdg = factoryTDG.factory();
     var returnPost = tdg.connect("post", "create", post);
-    return post;
+    return returnPost;
 }
