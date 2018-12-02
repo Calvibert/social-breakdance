@@ -4,6 +4,7 @@ var obj;
 var newObj;
 
 exports.dispatch = async function(collection, operation, object, newObject = 0) {
+  console.log()
   col = collection;
   obj = object;
   newObj = newObject;
@@ -24,17 +25,19 @@ exports.dispatch = async function(collection, operation, object, newObject = 0) 
 
 function create() {
   if (!obj || Object.keys(obj).length === 0) {
-    return;
+    return "Create Error: Nothing to create";
   }
 
   col.insertOne(obj).then(value => {
-    return value;
+    // return value.ops;
+    // return obj;
   });
+  return obj;
 }
 
 function read() {
   if (!obj) {
-    return;
+    return "Read Error: Nothing to read";
   }
 
   col
@@ -47,7 +50,7 @@ function read() {
 
 function update() {
   if (!obj && !newObj) {
-    return;
+    return "Update Error: Not enough information.";
   }
 
   col.updateOne(obj, { $set: newObj }).then(value => {

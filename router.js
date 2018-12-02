@@ -8,12 +8,6 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use(
-    bodyParser.urlencoded({
-      extended: true
-    })
-  );
-
 router.get("/api/hello", (req, res) => {
   res.send("hello there.");
 });
@@ -23,7 +17,6 @@ router.post("/api/signup", (req, res) => {
   req.params.opName = "create";
   console.log(req.body);
 
-  helperTDG.retrieveWithBody(req, res, req.params.colName, req.params.opName);
 });
 
 router.post("/api/login/", (req, res) => {
@@ -34,7 +27,7 @@ router.post("/api/login/", (req, res) => {
   res.cookie("user", "user cookie value");
 
   const tdg = factoryTDG.factory();
-  // tdg.connect(req, res, req.params.colName, req.params.opName);
+  // tdg.operate(req, res, req.params.colName, req.params.opName);
   res.send("cookie sent!");
 });
 
@@ -47,7 +40,6 @@ router.post("/api/:colName/:opName/", (req, res) => {
   // Log the request.
   console.log(req.body);
 
-  // helperTDG.retrieve(req, res, req.params.colName, req.params.opName);
 });
 
 router.get("/api/post/many", (req, res) => {
