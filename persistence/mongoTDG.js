@@ -3,7 +3,7 @@ const visitor = require("./strategyTDG");
 const url = "mongodb://127.0.0.1:27017/";
 const dbName = "soc-plat";
 
-exports.connect = (collectionName, operation, object, newObject) => {
+exports.connect = (collectionName, operation, object, newObject = 0) => {
   MongoClient.connect(
     url,
     (err, client) => {

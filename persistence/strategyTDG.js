@@ -3,7 +3,7 @@ var col;
 var obj;
 var newObj;
 
-exports.dispatch = async function(collection, operation, object, newObject) {
+exports.dispatch = async function(collection, operation, object, newObject = 0) {
   col = collection;
   obj = object;
   newObj = newObject;
@@ -23,11 +23,11 @@ exports.dispatch = async function(collection, operation, object, newObject) {
 };
 
 function create() {
-  if (!newObj || Object.keys(newObj).length === 0) {
+  if (!obj || Object.keys(obj).length === 0) {
     return;
   }
 
-  col.insertOne(newObj).then(value => {
+  col.insertOne(obj).then(value => {
     return value;
   });
 }
