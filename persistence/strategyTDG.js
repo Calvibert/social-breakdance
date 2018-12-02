@@ -56,7 +56,7 @@ function update() {
 
 function remove() {
   if (!obj) {
-    return;
+    return "Remove Error: Nothing to remove.";
   }
 
   return col.deleteOne(obj);

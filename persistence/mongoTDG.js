@@ -1,6 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const strategy = require("./strategyTDG");
 const url = "mongodb://127.0.0.1:27017/";
+const test = require("assert");
 const dbName = "soc-plat";
 
 exports.operate = function(
@@ -29,3 +30,16 @@ exports.operate = function(
     }
   );
 };
+
+exports.count = function(collectionName, filter = 0) {
+  MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
+    if (err) throw err;
+
+    var collection = client.db(dbName).collection(collectionName);
+    collection.countDocuments(filter).then(function(count) {
+      client.close();
+
+      return count;
+    })
+  })
+}
