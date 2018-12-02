@@ -8,9 +8,9 @@ describe("MongoDB Table Data Gateway", function() {
       var object = {
         object: "test object content"
       };
-      tdg.operate("test", "create", object, result => {
+      tdg.operate("test", "create", object, (callback = result => {
         expect(result.object).to.equal(object.object);
-      });
+      }));
     });
   });
 });

@@ -16,4 +16,19 @@ describe("Post Collection", function() {
       expect(createdPost).to.equal(testPost);
     });
   });
+
+  describe("Remove a Post", function() {
+    it("removes and returns the post", function() {
+      const testPost = {
+        title: "test post to remove",
+        content: "test post content",
+        user_id: "some id"
+      };
+      sinon.stub(post, "removePost").returns(testPost);
+
+      var removedPost = post.removePost(testPost);
+
+      expect(removedPost).to.equal(testPost);
+    });
+  });
 });

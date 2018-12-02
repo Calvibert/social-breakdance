@@ -17,7 +17,7 @@ exports.operate = function(
       if (err) throw err;
 
       var collection = client.db(dbName).collection(collectionName);
-      var result = strategy.dispatch(collection, operation, object);
+      var result = strategy.dispatch(collection, operation, object, newObject);
 
       client.close();
 
@@ -26,7 +26,7 @@ exports.operate = function(
           callback(result.ops);
         })
         .catch(error => {
-          callback(error);
+          // console.log(error);
         });
     }
   );

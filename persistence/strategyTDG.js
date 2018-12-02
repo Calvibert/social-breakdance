@@ -59,7 +59,5 @@ function remove() {
     return;
   }
 
-  col.deleteOne(obj).then(value => {
-    return value;
-  });
+  return col.deleteOne(obj);
 }
