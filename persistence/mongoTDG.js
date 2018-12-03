@@ -31,15 +31,14 @@ exports.operate = function(
   );
 };
 
-exports.count = function(collectionName, filter = 0) {
+exports.count = function(collectionName, filter = 0, callback) {
   MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
     if (err) throw err;
 
     var collection = client.db(dbName).collection(collectionName);
     collection.countDocuments(filter).then(function(count) {
       client.close();
-
-      return count;
-    })
+      callback(count);
+    });
   })
 }

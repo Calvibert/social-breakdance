@@ -17,14 +17,11 @@ describe("MongoDB Table Data Gateway", function() {
       var object = {
         object: "test object content"
       };
-      var countBefore = tdg.count("test");
 
       tdg.operate("test", "remove", object, result => {
         expect(result.object).to.equal(object.object);
       });
 
-      var countAfter = tdg.count("test");
-      expect(countBefore).to.equal(countAfter);
     });
   });
 });
