@@ -1,6 +1,4 @@
 const MongoTDG = require("./mongoTDG");
-const objectID = require("mongodb").ObjectID;
-const noPosts = 5;
 
 var exports = (module.exports = {});
 
