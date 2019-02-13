@@ -5,15 +5,15 @@ exports.startSession = function() {
 }
 
 exports.getSession = function(sessionId) {
-    
+
 }
 
 function createSessionId() {
   var id = [];
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for (var i = 0; i < 30; i++) {
-    id.push(possible.charAt(Math.floor(Math.random() * possible.length)));
+    id.push(characters.charAt(Math.floor(Math.random() * characters.length)));
   }
     
   return id.join("");
